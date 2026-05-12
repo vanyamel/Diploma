@@ -1,0 +1,27 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+#Dependencies
+node_modules/
+# Environment variables
+.env
+#Build output
+dist/
+#Logs
+*.log
+npm-debug.log*
+#OS files (Windows)
+Thumbs.db
+desktop.ini
+#IDE
+.vscode/
+.idea/
+#Vite cache
+.vite/
+
+
