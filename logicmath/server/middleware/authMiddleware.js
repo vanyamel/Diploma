@@ -8,7 +8,7 @@ export function requireAuth(req, res, next) {
 
   const token = authHeader.slice(7);
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+      const payload = jwt.verify(token, process.env.JWT_SECRET || 'secret');
     req.user = payload; // { userId, email, role }
     next();
   } catch (e) {
@@ -20,7 +20,7 @@ export function optionalAuth(req, res, next) {
   const authHeader = req.headers.authorization;
   if (authHeader?.startsWith('Bearer ')) {
     try {
-      req.user = jwt.verify(authHeader.slice(7), process.env.JWT_SECRET);
+        req.user = jwt.verify(authHeader.slice(7), process.env.JWT_SECRET || 'secret');
     } catch (_) {}
   }
   next();
