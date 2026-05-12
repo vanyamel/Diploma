@@ -20,7 +20,7 @@ const useAuthStore = create((set, get) => ({
       useStore.setState({ progress: progress || {} });
       return true;
     } catch (err) {
-      const msg = err.response?.data?.error || 'Error inходу';
+      const msg = err.response?.data?.error || 'Error';
       set({ error: msg, loading: false });
       return false;
     }
@@ -52,28 +52,30 @@ const useAuthStore = create((set, get) => ({
   },
 
   // Renew session
-  fetchMe: async () => {
-    const token = localStorage.getItem('lm_token');
-    if (!token) return;
-    try {
-      const res = await authApi.me();
-      set({ user: res.data.user });
-      useStore.setState({ progress: res.data.progress || {} });
-    } catch {
-      localStorage.removeItem('lm_token');
-      set({ token: null });
-    }
-  },
+    fetchMe: async () => {
+        const token = localStorage.getItem('lm_token');
+        if (!token) return;
+        try {
+            const res = await authApi.me();
+            set({ user: res.data.user });
+            useStore.setState({ progress: res.data.progress || {} });
+        } catch (err) {
+            if (err.response?.status === 401 || err.response?.status === 403) {
+                localStorage.removeItem('lm_token');
+                set({ token: null });
+            }
+        }
+    },
 
   // Sync XP
-  syncXP: (newXpTotal) => {
-    if (newXpTotal === null || newXpTotal === undefined) return;
-    set(state => ({
-      user: state.user ? { ...state.user, xp_total: newXpTotal } : null
-    }));
-  },
+    syncXP: (newXpTotal) => {
+        if (newXpTotal === null || newXpTotal === undefined) return;
+        set(state => ({
+            user: state.user ? { ...state.user, xp_total: newXpTotal } : null
+        }));
+    },
 
-  clearError: () => set({ error: null }),
+    clearError: () => set({ error: null }),
 }));
 
 export default useAuthStore;
