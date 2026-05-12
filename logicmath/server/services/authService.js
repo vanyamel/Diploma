@@ -73,7 +73,7 @@ export default class AuthService {
     return jwt.sign(
       { userId: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET || 'secret',
-      { expiresIn: '24h' }
+      { expiresIn: '30d' }
     );
   }
 }
