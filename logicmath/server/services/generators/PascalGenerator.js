@@ -48,7 +48,7 @@ export default class PascalGenerator {
 
     return {
       title: 'Заповни трикутник Паскаля',
-      description: 'Заповни пропущені клітинки (позначені ?) у трикутнику Паскаля. Кожне число = сума двох чисел зверху.',
+      description: 'Заповни пропущені клітинки (позначені ?) у трикутнику Паскаля.',
       params_json: { rows, missing, triangle: displayTriangle },
       answer_json: { type: 'pascal-fill', cells: missing },
       steps_json: [],

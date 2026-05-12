@@ -58,7 +58,7 @@ export default class FigurateGenerator {
     const shapeName = this._getShapeNameUA(shape);
     return {
       title: `${shapeName.charAt(0).toUpperCase()}${shapeName.slice(1)} число`,
-      description: `Порахуй точки у фігурі та вибери правильну відповідь. Формула: ${this._getShapeFormula(shape)}`,
+      description: `Порахуй точки у фігурі та вибери правильну відповідь.`,
       params_json: { shape, n, dots, choices },
       answer_json: { type: 'choice', value: answer },
       steps_json: [],

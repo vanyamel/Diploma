@@ -109,7 +109,7 @@ function drawSierpinski(ctx, w, h, step) {
 
   ctx.fillStyle = 'rgba(255,255,255,0.6)';
   ctx.font = 'bold 14px sans-serif';
-  ctx.fillText(`Крок ${step} → ${3 ** step} трикутників`, 16, 24);
+  ctx.fillText(`Крок ${step}`, 16, 24);
 }
 
 function drawKoch(ctx, w, h, iter) {
@@ -127,7 +127,7 @@ function drawKoch(ctx, w, h, iter) {
 
   ctx.fillStyle = 'rgba(255,255,255,0.6)';
   ctx.font = 'bold 14px sans-serif';
-  ctx.fillText(`Ітерація ${iter} → ${4 ** iter} відрізків`, 16, 24);
+  ctx.fillText(`Ітерація ${iter} →`, 16, 24);
 }
 
 function kochCollect(a, b, iter, pts) {
