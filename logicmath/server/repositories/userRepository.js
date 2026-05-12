@@ -60,8 +60,8 @@ export default class UserRepository {
       `SELECT id, username, xp_total,
               RANK() OVER (ORDER BY xp_total DESC) AS rank
        FROM users
+       WHERE is_verified = TRUE
        ORDER BY xp_total DESC
-        WHERE is_verified = TRUE
        LIMIT $1`,
       [limit]
     );
