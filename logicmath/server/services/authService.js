@@ -69,6 +69,7 @@ export default class AuthService {
     return true;
   }
 
+
   _generateToken(user) {
     return jwt.sign(
       { userId: user.id, email: user.email, role: user.role },
