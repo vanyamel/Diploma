@@ -61,6 +61,7 @@ export default class UserRepository {
               RANK() OVER (ORDER BY xp_total DESC) AS rank
        FROM users
        ORDER BY xp_total DESC
+        WHERE is_verified = TRUE
        LIMIT $1`,
       [limit]
     );
