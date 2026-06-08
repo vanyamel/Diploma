@@ -15,7 +15,7 @@ const useStore = create((set, get) => ({
 
     const problem = get().currentProblem;
     const isLocallySolved = problem && get().progress[problem.category]?.[problem.level] === true;
-    
+
     // If problem solved
     const alreadySolved = result.alreadySolved || isLocallySolved;
 
@@ -32,7 +32,7 @@ const useStore = create((set, get) => ({
     if (finalResult.correct && finalResult.xpEarned > 0) {
       set(state => ({
         totalXP: state.totalXP + finalResult.xpEarned,
-        streak:  state.streak + 1,
+        streak: state.streak + 1,
       }));
     } else if (!finalResult.correct && !finalResult.gaveUp) {
       set({ streak: 0 });
@@ -53,9 +53,11 @@ const useStore = create((set, get) => ({
   },
 
 
-  totalXP:  0,
-  streak:   0,
+  totalXP: 0,
+  streak: 0,
   progress: {}, // { PASCAL: { 1: true, 3: false, 5: false }, ... }
+
+  setProgress: (p) => set({ progress: p || {} }),
 
   // reset
   reset: () => set({ currentProblem: null, answerResult: null }),
