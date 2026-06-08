@@ -1,12 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Custom theme — Tailwind v4 CSS-first config */
+@theme {
+  --color-slate-50: #f6f7fa;
+  --color-slate-100: #ebedf4;
+  --color-slate-200: #d3d7e6;
+  --color-slate-300: #acb5d1;
+  --color-slate-400: #7f8fb8;
+  --color-slate-500: #5e729e;
+  --color-slate-600: #485880;
+  --color-slate-700: #3a4768;
+  --color-slate-800: #262f45;
+  --color-slate-900: #141a28;
+  --color-slate-950: #0b0e17;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-family-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
