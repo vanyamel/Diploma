@@ -1,4 +1,4 @@
-import * as Brevo from '@getbrevo/brevo';
+import Brevo from '@getbrevo/brevo';
 import nodemailer from 'nodemailer';
 
 const brevoClient = process.env.BREVO_API_KEY
